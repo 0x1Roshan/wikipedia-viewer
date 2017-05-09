@@ -5,6 +5,11 @@ $( document ).ready( function() {
 
 		var searchText = $( "#search-text").val();
 
+		if ( searchText == "") {
+			alert("Empty value");
+			return;
+		}
+
 		var url = "https://en.wikipedia.org/w/api.php?action=opensearch&limit=9&format=json&search=" + searchText;
 
 		$("#firstRow").html('');
@@ -38,8 +43,8 @@ function putContent( data ) {
 		}
 
 		$( row ).append('<a href="' + links[i] + '"target="_blank">' +
-						'<div class="col-md-4">' +
-						'<div class="panel panel-default">' +
+						'<div class="col-md-4 ">' +
+						'<div class="panel panel-default result-list">' +
 						'<div class="panel-heading"' +
 						'<h4>' + titles[i] + '</h4>' +
 						'</div>' +
